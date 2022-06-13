@@ -5,4 +5,25 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>lricaldi</name>
   <description>Proyecto de Examen CL1</description>
+  <properties>
+  	<maven.compiler.source>1.8</maven.compiler.source>
+  	<maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+  <dependencies>
+  	<dependency>
+    	<groupId>mysql</groupId>
+    	<artifactId>mysql-connector-java</artifactId>
+    	<version>8.0.21</version>
+	</dependency>
+	<dependency>
+	 	<groupId>org.hibernate</groupId>
+	 	<artifactId>hibernate-core</artifactId>
+	 	<version>5.3.7.Final</version>
+	</dependency>
+	<dependency>
+	 	<groupId>org.hibernate</groupId>
+	 	<artifactId>hibernate-entitymanager</artifactId>
+	 	<version>5.3.7.Final</version>
+	</dependency>
+  </dependencies>
 </project>

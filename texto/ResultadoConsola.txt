@@ -1,0 +1,74 @@
+jun 12, 2022 7:38:39 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.3.7.Final}
+jun 12, 2022 7:38:39 PM org.hibernate.cfg.Environment <clinit>
+INFO: HHH000206: hibernate.properties not found
+jun 12, 2022 7:38:39 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+jun 12, 2022 7:38:39 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+jun 12, 2022 7:38:39 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/CL1_libro?serverTimezone=UTC]
+jun 12, 2022 7:38:39 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {user=root, password=****}
+jun 12, 2022 7:38:39 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+jun 12, 2022 7:38:39 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+jun 12, 2022 7:38:40 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+Hibernate: drop table if exists hibernate_sequence
+jun 12, 2022 7:38:40 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5b5caf08] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Hibernate: drop table if exists libro
+Hibernate: drop table if exists tema
+Hibernate: create table hibernate_sequence (next_val bigint) engine=MyISAM
+jun 12, 2022 7:38:40 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2caf6912] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Hibernate: insert into hibernate_sequence values ( 1 )
+Hibernate: insert into hibernate_sequence values ( 1 )
+Hibernate: create table libro (idlibro integer not null, cantEjemplares integer, origen varchar(255), precio double precision, titulo varchar(255), tema_idtema integer, primary key (idlibro)) engine=MyISAM
+Hibernate: create table tema (idtema integer not null, nombre varchar(255), primary key (idtema)) engine=MyISAM
+Hibernate: alter table libro add constraint FK2g1irnlajkxvvsrh8poslod3h foreign key (tema_idtema) references tema (idtema)
+jun 12, 2022 7:38:40 PM org.hibernate.tool.schema.internal.SchemaCreatorImpl applyImportSources
+INFO: HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@1d01dfa5'
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into tema (nombre, idtema) values (?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into tema (nombre, idtema) values (?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into tema (nombre, idtema) values (?, ?)
+jun 12, 2022 7:38:40 PM org.hibernate.hql.internal.QueryTranslatorFactoryInitiator initiateService
+INFO: HHH000397: Using ASTQueryTranslatorFactory
+Hibernate: select tema0_.idtema as idtema1_1_, tema0_.nombre as nombre2_1_ from tema tema0_
+===============================
+	TABLA TEMA
+===============================
+ID	NOMBRE
+------------------------------
+1	Magia
+2	Viajes Espaciales
+3	Historia
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into libro (cantEjemplares, origen, precio, tema_idtema, titulo, idlibro) values (?, ?, ?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into libro (cantEjemplares, origen, precio, tema_idtema, titulo, idlibro) values (?, ?, ?, ?, ?, ?)
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into libro (cantEjemplares, origen, precio, tema_idtema, titulo, idlibro) values (?, ?, ?, ?, ?, ?)
+Hibernate: select libro0_.idlibro as idlibro1_0_, libro0_.cantEjemplares as cantEjem2_0_, libro0_.origen as origen3_0_, libro0_.precio as precio4_0_, libro0_.tema_idtema as tema_idt6_0_, libro0_.titulo as titulo5_0_ from libro libro0_
+Hibernate: select tema0_.idtema as idtema1_1_0_, tema0_.nombre as nombre2_1_0_ from tema tema0_ where tema0_.idtema=?
+Hibernate: select tema0_.idtema as idtema1_1_0_, tema0_.nombre as nombre2_1_0_ from tema tema0_ where tema0_.idtema=?
+===============================
+	TABLA LIBRO
+===============================
+ID	TITULO			PRECIO	CANT	ORIGEN		TEMA
+-------------------------------------------------------------------
+4	Harry Potter libro uno	69.0	20	Salamandra	Magia
+5	Harry Potter libro dos	79.0	12	Salamandra	Magia
+6	Perdidos en el Espacio	100.0	35	Universo	Viajes Espaciales
